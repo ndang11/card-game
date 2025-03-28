@@ -1,14 +1,14 @@
-const grid = document.querySelector('.grid');
+const grid = document.querySelector('.grid')
 const gameContainer = document.querySelector('.game-container') // Select the container
 const timerDisplay = document.createElement('h2')
 timerDisplay.textContent = '⏳ Time: 0 sec'
 gameContainer.insertBefore(timerDisplay, grid) // Insert inside game container
 
 // Select the existing Restart Button from HTML
-const restartButton = document.getElementById("button")
+const restartButton = document.getElementById('button')
 
-const cardValues = ["🍎", "🍌", "🍒", "🍇", "🍉", "🍋", "🥝", "🍍"]
-let gameCards = [];
+const cardValues = ['🍎', '🍌', '🍒', '🍇', '🍉', '🍋', '🥝', '🍍']
+let gameCards = []
 let flippedCards = []
 let matchedPairs = 0
 let timer
@@ -16,8 +16,8 @@ let secondsElapsed = 0
 let gameStarted = false
 
 // Function to Start/Restart Game
-function setupGame() {
-  grid.innerHTML = ""// Clear old cards
+function setupGame () {
+  grid.innerHTML = ''// Clear old cards
   gameCards = [...cardValues, ...cardValues].sort(() => Math.random() - 0.5)
   flippedCards = []
   matchedPairs = 0
@@ -26,11 +26,11 @@ function setupGame() {
   timerDisplay.textContent = '⏳ Time: 0 sec'
 
   gameCards.forEach((emoji) => {
-    const card = document.createElement("div")
-    card.classList.add("card")
+    const card = document.createElement('div')
+    card.classList.add('card')
     card.innerHTML = `
-            <div class="front"></div>
-            <div class="back">${emoji}</div>
+            <div class='front'></div>
+            <div class='back'>${emoji}</div>
         `;
     card.addEventListener('click', () => flipCard(card, emoji))
     grid.appendChild(card)
@@ -39,7 +39,7 @@ function setupGame() {
   stopTimer()
 }
 
-function startTimer() {
+function startTimer () {
   stopTimer()
   timer = setInterval(() => {
     secondsElapsed++
@@ -47,17 +47,17 @@ function startTimer() {
   }, 1000)
 }
 
-function stopTimer() {
+function stopTimer () {
   clearInterval(timer)
 }
 
-function flipCard(card, emoji) {
+function flipCard (card, emoji) {
   if (!gameStarted) {
     gameStarted = true
     startTimer()
   }
 
-  if (flippedCards.length < 2 && !card.classList.contains("flip")) {
+  if (flippedCards.length < 2 && !card.classList.contains('flip')) {
     card.classList.add('flip');
     flippedCards.push({ card, emoji })
 
@@ -67,7 +67,7 @@ function flipCard(card, emoji) {
   }
 }
 
-function checkMatch() {
+function checkMatch () {
   const [card1, card2] = flippedCards
 
   if (card1.emoji === card2.emoji) {
