@@ -23,7 +23,7 @@ function setupGame() {
   matchedPairs = 0;
   secondsElapsed = 0;
   gameStarted = false;
-  timerDisplay.textContent = "⏳ Time: 0 sec";
+  timerDisplay.textContent = "⏳ Time 0";
 
   gameCards.forEach((emoji) => {
     const card = document.createElement("div");
@@ -43,7 +43,7 @@ function startTimer() {
   stopTimer();
   timer = setInterval(() => {
     secondsElapsed++;
-    timerDisplay.textContent = `⏳ Time: ${secondsElapsed} sec`;
+    timerDisplay.textContent = `Time: ${secondsElapsed} sec`;
   }, 1000);
 }
 
