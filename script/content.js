@@ -31,7 +31,7 @@ function setupGame () {
     card.innerHTML = `
             <div class='front'></div>
             <div class='back'>${emoji}</div>
-        `;
+        `
     card.addEventListener('click', () => flipCard(card, emoji))
     grid.appendChild(card)
   })
@@ -58,7 +58,7 @@ function flipCard (card, emoji) {
   }
 
   if (flippedCards.length < 2 && !card.classList.contains('flip')) {
-    card.classList.add('flip');
+    card.classList.add('flip')
     flippedCards.push({ card, emoji })
 
     if (flippedCards.length === 2) {
